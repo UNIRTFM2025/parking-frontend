@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  overflow: hidden;
+}
+
+* {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+
+.custom-marker {
+  background-color: white;
+  background-image: url(/logos/icon-parking.svg);
+  background-size: 68%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  border: 2px solid black;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}

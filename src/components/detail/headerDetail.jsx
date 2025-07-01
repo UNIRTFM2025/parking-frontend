@@ -16,6 +16,9 @@ export default function HeaderDetail() {
                 <span>⭐ {site.rating}</span>
                 <span>{site.covered ? "✅ Cubierto" : "❌ No cubierto"}</span>
                 <span>🏢 Pisos: {totalFloors}</span>
+                <span>🚘 Total Slots: {
+                    site.paking[0].floors.reduce((acc, floor) => acc + floor.slots.length, 0)
+                }</span>
             </div>
         </header>
     );

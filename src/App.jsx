@@ -1,15 +1,16 @@
-import MapComponent from './components/mapView';
-import { MapProvider, MapContext } from './contexts/MapContext';
-import { MarkersProvider } from './contexts/MarkersContext';
-import Header from './components/Header';
+import { Route, Routes } from 'react-router-dom';
+import Landing from './views/landing';
+import { MarkerDetail } from './components/markerDetail';
 
 function App() {
     return (
         <>
-            <MarkersProvider>
-                <Header />
-                <MapComponent />
-            </MarkersProvider>
+            <Routes>
+                <Route path="/" element={<Landing />}>
+                    <Route index element={<Landing />} />                    
+                </Route>
+                <Route path="detail" element={<MarkerDetail />} />
+            </Routes>
         </>
     );
 }

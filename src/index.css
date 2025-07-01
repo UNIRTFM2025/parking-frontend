@@ -25,3 +25,19 @@ body {
   height: 40px;
   cursor: pointer;
 }
+
+.boton {
+  background-color: #4CAF50; /* Color de fondo */
+  border: none; /* Sin borde */
+  color: white; /* Color del texto */
+  padding: 5px 10px; /* Relleno */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block; /* Para que el botón no ocupe todo el ancho */
+  font-size: 12px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+.boton:hover {
+  background-color: #3e8e41; /* Cambia el color al pasar por encima */
+}

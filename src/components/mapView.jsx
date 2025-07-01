@@ -108,6 +108,7 @@ const MapComponent = () => {
                 <div style="font-family: Arial; text-align: center;">
                     <h3 style="margin: 0;">${markerData.title}</h3>
                     <p style="margin: 5px 0;">${markerData.description}</p>
+                    <a href="/detail" class="boton">Detalle</a>
                 </div>
             `;
 

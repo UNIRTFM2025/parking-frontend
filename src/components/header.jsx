@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = () => {
+const HeaderComponent = () => {
     return (
         <header className="bg-blue-400 text-gray-900 p-4 shadow-md">
             <div className="flex flex-col items-center space-y-2 md:flex-row md:justify-center md:space-y-0 md:space-x-6">
@@ -23,4 +23,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default HeaderComponent;

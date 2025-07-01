@@ -11,3 +11,10 @@
 ```
     npm run dev 
 ```
+
+4. Adminsitrar la versión de node  
+
+```
+    nvm ls  
+    nvm use 22.17.0
+```

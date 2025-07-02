@@ -9,7 +9,7 @@ function App() {
                 <Route path="/" element={<Landing />}>
                     <Route index element={<Landing />} />                    
                 </Route>
-                <Route path="detail" element={<MarkerDetail />} />
+                <Route path="detail/:spaceId" element={<MarkerDetail />} />
             </Routes>
         </>
     );

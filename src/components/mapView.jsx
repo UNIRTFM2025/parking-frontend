@@ -3,25 +3,26 @@ import React, { useEffect, useRef, useContext } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MarkersContext } from '../contexts/MarkersContext';
+import FullScreenLoader from './FullScreenLoader';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoidW5pcmJ4ZXJ2byIsImEiOiJjbWE0b2Zva3MwOWhzMnZvYmNiZWFydjBkIn0.TBOs2w0YdqhHUJCUhnzGbA';
 
 const MapComponent = () => {
     const mapContainer = useRef();
     const map = useRef();
-    const { markers } = useContext(MarkersContext);
+    const { markers, loading } = useContext(MarkersContext);
 
     useEffect(() => {
         if (map.current) return;
 
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
-            "name": "some-style",
+            "name": "some-parking",
             "version": 8,
           
             // default camera position
             "center":  [-74.10776,4.63084],
-            "zoom": 13,
+            "zoom": 12,
           
             // sprites and fonts
             "sprite": "mapbox://sprites/mapbox/light-v11",
@@ -98,17 +99,12 @@ const MapComponent = () => {
         markers.forEach(markerData => {
             const el = document.createElement('div');
             el.className = 'custom-marker';
-            // el.style.backgroundImage = 'url(/icon-parking.svg)';
-            // el.style.width = '32px';
-            // el.style.height = '32px';
-            // el.style.backgroundSize = 'contain';
-            // el.style.cursor = 'pointer';
 
             const popupContent = `
                 <div style="font-family: Arial; text-align: center;">
                     <h3 style="margin: 0;">${markerData.title}</h3>
                     <p style="margin: 5px 0;">${markerData.description}</p>
-                    <a href="/detail" class="boton">Detalle</a>
+                    <a href="/detail/${markerData.id}" class="boton">Detalle</a>
                 </div>
             `;
 
@@ -123,13 +119,17 @@ const MapComponent = () => {
             map.current.markers.push(marker);
         });
     }, [markers]);
+    
 
     return (
-        <div
-            style={{ height: '100vh', width: '100vw' }}
-            ref={mapContainer}
-            className="map-container"
-        />
+        <div style={{ height: '100vh', width: '100vw', position: 'relative' }}>
+            <div
+                ref={mapContainer}
+                className="map-container"
+                style={{ height: '100%', width: '100%' }}
+            />
+            {loading && <FullScreenLoader />}
+        </div>
     );
 };
 

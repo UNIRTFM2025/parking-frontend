@@ -1,6 +1,7 @@
 import FloorChart from "./floorChart.jsx";
+import FloorDiagram from "./FloorDiagram.jsx";
 
-export default function FloorStats({ floor }) {
+export default function FloorStats({ floor, space}) {
     const slots = floor.slots;
 
     const getStats = (type, status) =>
@@ -28,6 +29,9 @@ export default function FloorStats({ floor }) {
             </div>
 
             <FloorChart floor={floor} />
+
+
+            <FloorDiagram floor={floor} space={space} />
 
         </div>
     );

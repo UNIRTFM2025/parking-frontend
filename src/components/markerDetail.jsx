@@ -44,7 +44,7 @@ export const MarkerDetail = () => {
             <div className="flex-1 flex flex-col">
                 <HeaderDetail space={spaceData.site} />
                 <main className="flex-1 p-6 bg-gray-100 overflow-auto">
-                    <FloorStats floor={currentFloor} />
+                    <FloorStats floor={currentFloor} space = {spaceId} />
                 </main>
             </div>
         </div>

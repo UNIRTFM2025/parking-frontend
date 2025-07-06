@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 import PrintLayout from "../PrintLayout.jsx";
 import { FaCarRear , FaMotorcycle } from "react-icons/fa6";
 import axios from "axios";
+import LoaderDetails from "./LoaderDetails.jsx";
 
 export default function FloorDetail({ nameParking, parkingLayout, floor, space}) {
     const [floorsData, setFloorsData] = useState(null);
+
+    useEffect(() => {
+        setFloorsData(null);
+    }, [floor]);
 
     useEffect(() => {
         let intervalId;
@@ -38,7 +43,7 @@ export default function FloorDetail({ nameParking, parkingLayout, floor, space})
     const countByType = (type) => floorsData?.slots.filter((s) => s.type === type).length;
 
     if (!floorsData) {
-        return <div className="bg-white shadow rounded-2xl p-6">Un momento...</div>;
+        return <LoaderDetails />;
     }
 
     return (

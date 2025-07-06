@@ -1,6 +1,7 @@
 import { GoSearch } from "react-icons/go";
 import { useContext, useState } from "react";
 import { MarkersContext } from "../contexts/MarkersContext";
+import ALink from "./ALink";
 
 const HeaderComponent = () => {
     const { markers } = useContext(MarkersContext);
@@ -43,13 +44,14 @@ const HeaderComponent = () => {
                             {filteredMarkers.length > 0 ? (
                                 filteredMarkers.map(marker => (
                                     <li key={marker.id} className="relative min-h-10 hover:bg-blue-100 cursor-pointer">
-                                        <a className="absolute inset-0 px-4 py-2" href={`/detail/${marker.id}`}>
+
+                                        <ALink className="absolute inset-0 px-4 py-2" src={`/parkings/details/${marker.id}`}>
                                             {marker.title}
                                             {marker.available > 0 ? 
                                                 <span className="bg-green-500 text-white float-end text-xs font-bold py-1 px-3 rounded-full">disponible</span> :
                                                 <span className="bg-red-400 text-white float-end text-xs font-bold py-1 px-3 rounded-full">ocupado</span>
                                             }
-                                        </a>
+                                        </ALink>
                                     </li>
                                 ))
                             ) : (

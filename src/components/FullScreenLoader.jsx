@@ -13,7 +13,7 @@ const FullScreenLoader = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setMsgIndex((prev) => (prev + 1) % messages.length);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(interval);
   }, []);
 

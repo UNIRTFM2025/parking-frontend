@@ -34,7 +34,7 @@ const PrintLayout = ({ numLayout, slots }) => {
                 const path = svgElement.querySelector(`#${id}`);
                 if (path) {
                     gsap.to(path, {
-                        fill: slot.status ? '#4ade80' : '#f87171',
+                        fill: slot.status ? '#7bf1a8' : '#ffa2a2',
                         duration: 1
                     });
                 }

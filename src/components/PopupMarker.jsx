@@ -26,7 +26,7 @@ export default function PopupMarker({ infoMarker }) {
                     </div>
                 </div>
 
-                <a href={`/detail/${infoMarker.id}`} 
+                <a href={`/parkings/details/${infoMarker.id}`} 
                     className="block mt-4 px-3 py-2 bg-blue-400/70 text-center text-white rounded hover:bg-blue-400 focus:outline-0 transition"
                 >
                     Ver detalle

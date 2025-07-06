@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import FullScreenLoader from "./FullScreenLoader";
-import HeaderDetail from "./detail/headerDetail";
-import FloorDetail from "./detail/floorDetail";
-import Sidebar from "./detail/sidebar";
+import FullScreenLoader from "../components/FullScreenLoader";
+import HeaderDetail from "../components/parkingsDetails/HeaderDetail";
+import FloorDetail from "../components/parkingsDetails/FloorDetail";
+import Sidebar from "../components/parkingsDetails/Sidebar";
 
-export const MarkerDetail = () => {
+export const ParkingsDetails = () => {
     const { spaceId } = useParams();
     const [spaceData, setSpaceData] = useState(null);
     const [selectedFloor, setSelectedFloor] = useState([0,1]);

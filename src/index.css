@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+
+@theme {
+  --color-darBlue: #17537c;
+}
+
+
 :root {
   color-scheme: light dark;
 }
@@ -20,7 +26,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
-  border: 2px solid black;
+  border: 2px solid #17537c;
   width: 40px;
   height: 40px;
   cursor: pointer;
@@ -40,4 +46,47 @@ body {
 
 .boton:hover {
   background-color: #3e8e41; /* Cambia el color al pasar por encima */
+}
+
+.mapboxgl-popup-content {
+  min-width: 240px;
+  border-radius: 10px !important;
+  padding: 60px 15px 15px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  overflow: hidden;
+}
+
+.mapboxgl-popup-close-button { 
+  top: 8px !important;
+  right: 8px !important;
+  width: 20px;
+  height: 20px;
+}
+
+.mapboxgl-popup-close-button span { 
+  display:  none !important; /* Oculta el botón de cerrar */
+}
+
+.mapboxgl-popup-close-button:hover {
+      background-color: transparent !important; /* Elimina el fondo al pasar el mouse */
+}
+
+.mapboxgl-popup-close-button::before,
+.mapboxgl-popup-close-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background-color: white;
+  transform-origin: center;
+}
+
+.mapboxgl-popup-close-button::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.mapboxgl-popup-close-button::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
 }

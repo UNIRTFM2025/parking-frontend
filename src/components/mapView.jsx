@@ -1,9 +1,11 @@
 // src/components/MapComponent.js
 import React, { useEffect, useRef, useContext } from 'react';
+import ReactDOMServer from 'react-dom/server';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MarkersContext } from '../contexts/MarkersContext';
 import FullScreenLoader from './FullScreenLoader';
+import PopupMarker from './PopupMarker';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoidW5pcmJ4ZXJ2byIsImEiOiJjbWE0b2Zva3MwOWhzMnZvYmNiZWFydjBkIn0.TBOs2w0YdqhHUJCUhnzGbA';
 
@@ -100,13 +102,7 @@ const MapComponent = () => {
             const el = document.createElement('div');
             el.className = 'custom-marker';
 
-            const popupContent = `
-                <div style="font-family: Arial; text-align: center;">
-                    <h3 style="margin: 0;">${markerData.title}</h3>
-                    <p style="margin: 5px 0;">${markerData.description}</p>
-                    <a href="/detail/${markerData.id}" class="boton">Detalle</a>
-                </div>
-            `;
+            const popupContent = ReactDOMServer.renderToString(<PopupMarker infoMarker={markerData} />);
 
             const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent);
 
@@ -119,16 +115,15 @@ const MapComponent = () => {
             map.current.markers.push(marker);
         });
     }, [markers]);
-    
 
     return (
         <div style={{ height: '100vh', width: '100vw', position: 'relative' }}>
+          {loading && <FullScreenLoader />}
             <div
                 ref={mapContainer}
                 className="map-container"
                 style={{ height: '100%', width: '100%' }}
             />
-            {loading && <FullScreenLoader />}
         </div>
     );
 };

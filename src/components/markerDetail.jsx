@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import FloorStats from "./detail/floorStats";
-import HeaderDetail from "./detail/headerDetail";
-import Sidebar from "./detail/sidebar";
-import { site } from "./detail/siteData";
 import FullScreenLoader from "./FullScreenLoader";
+import HeaderDetail from "./detail/headerDetail";
+import FloorDetail from "./detail/floorDetail";
+import Sidebar from "./detail/sidebar";
 
 export const MarkerDetail = () => {
     const { spaceId } = useParams();
     const [spaceData, setSpaceData] = useState(null);
-    const [selectedFloor, setSelectedFloor] = useState(site.paking[0].floors[0].number);
+    const [selectedFloor, setSelectedFloor] = useState([0,1]);
 
     useEffect(() => {
         console.log('Fetching space data for ID:', spaceId);
@@ -25,14 +24,14 @@ export const MarkerDetail = () => {
             }
         };
         if (spaceId) {
-            timeoutId = setTimeout(fetchSpace, 1000);
+            timeoutId = setTimeout(fetchSpace, 400);
         }
         return () => clearTimeout(timeoutId);
     }, [spaceId]);
 
-    const currentFloor = site.paking[0].floors.find(
-        (floor) => floor.number === selectedFloor
-    );
+    const handleClickfloors = (parking, floor) => {  
+        setSelectedFloor([parking, floor]);
+    }
 
     if (!spaceData) {
         return <FullScreenLoader />;
@@ -40,11 +39,21 @@ export const MarkerDetail = () => {
 
     return (
         <div className="flex h-screen">
-            <Sidebar ListParking={spaceData.site.paking}  selectedFloor={selectedFloor} onSelectFloor={setSelectedFloor} />
+            <Sidebar 
+                ListParking={spaceData.site.paking}
+                selectedParking={selectedFloor[0]} 
+                selectedFloor={selectedFloor[1]} 
+                onSelectFloor={handleClickfloors} 
+            />
             <div className="flex-1 flex flex-col">
                 <HeaderDetail space={spaceData.site} />
                 <main className="flex-1 p-6 bg-gray-100 overflow-auto">
-                    <FloorStats floor={currentFloor} space = {spaceId} />
+                    <FloorDetail 
+                        nameParking={spaceData.site.paking.find(p => p.id === selectedFloor[0])?.zone || 'Zona Desconocida'}
+                        parkingLayout={spaceData.site.paking[selectedFloor[0]].layout}
+                        floor={selectedFloor} 
+                        space={spaceId} 
+                    />
                 </main>
             </div>
         </div>

@@ -1,16 +1,9 @@
 import ALink from "../ALink";
-import { site } from "./siteData";
-
-export default function Sidebar({ ListParking, selectedFloor, onSelectFloor }) {
-  const floors = site.paking[0].floors;
-
-
-
-  console.log("listParking", ListParking);
+export default function Sidebar({ ListParking, selectedFloor , selectedParking, onSelectFloor }) {
 
   return (
     <aside className="h-screen w-64 bg-blue-400 text-white">
-      <div className="p-4 border-b">
+      <div className="p-4.5 border-b">
         <ALink src='/' label='ir a home' className="flex gap-3">
             <img
                 src="/logos/logo-parking.svg"
@@ -28,12 +21,17 @@ export default function Sidebar({ ListParking, selectedFloor, onSelectFloor }) {
             {parking.floors.map((floor) => (
               <li key={floor.number}>
                 <button
-                  onClick={() => onSelectFloor(floor.number)}
-                  className={`w-full text-left px-4 py-2 hover:bg-blue-700 ${
-                    selectedFloor === floor.number ? "bg-blue-700 font-bold" : ""
+                  onClick={() => onSelectFloor(parking.id, floor.number)}
+                  className={`cursor-pointer w-full text-left px-4 py-2 rounded-s-full hover:bg-gray-100/60 hover:text-gray-600 ${
+                    selectedFloor === floor.number && selectedParking === parking.id  ? "bg-gray-100 text-gray-600 font-bold" : ""
                   }`}
                 >
                   Piso {floor.number}
+                  
+                  {parking.available > 0 ? 
+                    <span className=" text-blue-400 bg-white px-3 py-1 border-1 border-blue-400 animate-pulse rounded-xl float-end font-normal text-xs">disponible</span> :
+                    <span className="text-black bg-red-400 px-3 py-1 rounded-xl float-end font-normal text-xs">ocupado</span>
+                  }
                 </button>
               </li>
             ))}

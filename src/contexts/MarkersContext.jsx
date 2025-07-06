@@ -22,7 +22,9 @@ export const MarkersProvider = ({ children }) => {
                         id: space.id,
                         coordinates: [space.site.location.longitude, space.site.location.latitude],
                         title: space.site.name || 'Sin nombre',
-                        description: space.site.address.street || '',
+                        address: space.site.address.street || '',
+                        rating: space.site.rating || 0,
+                        available: space.site.available || 0
                     }));
                     setMarkers(initialMarkers);
                 }
@@ -54,7 +56,7 @@ export const MarkersProvider = ({ children }) => {
     };
 
     return (
-        <MarkersContext.Provider value={{ markers, addMarker }}>
+        <MarkersContext.Provider value={{ markers, addMarker , loading}}>
             {children}
         </MarkersContext.Provider>
     );

@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import MainMaps from '../views/MainMaps';
-import { ParkingsDetails } from '../views/parkingsDetails';
+import { ParkingsDetails } from '../views/ParkingsDetails';
 
 function App() {
     return (

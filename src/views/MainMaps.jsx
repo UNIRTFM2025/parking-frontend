@@ -3,7 +3,7 @@ import HeaderComponent from "../components/header";
 import { MarkersProvider } from "../contexts/MarkersContext";
 
 
-function Landing () {
+export default function MainMaps() {
     return (
        <>
             <MarkersProvider>
@@ -14,5 +14,3 @@ function Landing () {
     );
 
 }
-
-export default Landing;

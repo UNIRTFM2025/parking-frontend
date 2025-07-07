@@ -10,11 +10,11 @@ export default function PopupMarker({ infoMarker }) {
                 </div>
             </div>
             <div>
-                <h3 className="font-bold text-lg">{infoMarker.title}</h3>
-                <p className="text-sm">{infoMarker.address}</p>
+                <h3 className="font-bold text-lg text-gray-800">{infoMarker.title}</h3>
+                <p className="text-sm text-gray-800">{infoMarker.address}</p>
                 <hr className="border-(--color-darBlue) block mt-4 mb-4" />
                 <div className="flex items-center justify-start gap-3">
-                    <FaCarRear size={26} className="text-(--color-darBlue)"/>
+                    <FaCarRear size={26} className="text-gray-600"/>
                     <div>
                         <div className="mb-1">
                             <StartRating rating={infoMarker.rating} />

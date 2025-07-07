@@ -5,11 +5,6 @@
   --color-darBlue: #17537c;
 }
 
-
-:root {
-  color-scheme: light dark;
-}
-
 body {
   overflow: hidden;
 }

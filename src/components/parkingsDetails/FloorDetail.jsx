@@ -55,9 +55,9 @@ export default function FloorDetail({ nameParking, parkingLayout, floor, space})
             <div className="flex justify-between items-start mb-6">
                 <PrintLayout numLayout={parkingLayout} slots={floorsData.slots}/>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 self-center">
-                    <div className="flex flex-col gap-1.5 justify-center items-center p-4 border border-dashed">
-                        <FaCarRear className="text-5xl mb-3"/>
-                        <div className="w-full text-center py-2 px-5 bg-green-300 rounded">
+                    <div className="flex flex-col gap-1.5 justify-center items-center p-4 border border-gray-600 border-dashed">
+                        <FaCarRear className="text-5xl mb-3 text-gray-600"/>
+                        <div className="w-full text-center py-2 px-5 bg-green-300 rounded text-gray-700">
                             <span className="text-4xl font-bold">{getStats("Carro", false)}</span>
                             <span className="block">Libres</span>
                         </div>
@@ -70,9 +70,9 @@ export default function FloorDetail({ nameParking, parkingLayout, floor, space})
                             <span className="block">Total</span>
                         </div>
                     </div> 
-                    <div className="flex flex-col gap-1.5 justify-center items-center p-4 border border-dashed">
-                        <FaMotorcycle className="text-5xl mb-3" />
-                        <div className="w-full text-center py-2 px-5 bg-green-300 rounded">
+                    <div className="flex flex-col gap-1.5 justify-center items-center p-4 border border-gray-600 border-dashed">
+                        <FaMotorcycle className="text-5xl mb-3 text-gray-600" />
+                        <div className="w-full text-center py-2 px-5 bg-green-300 rounded text-gray-700">
                             <span className="text-4xl font-bold">{getStats("Moto", false)}</span>
                             <span className="block">Libres</span>
                         </div>

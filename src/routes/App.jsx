@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import MainMaps from '../views/MainMaps';
-import { ParkingsDetails } from '../views/ParkingsDetails';
+import { ParkingDetails } from '../views/ParkingDetails';
 
 function App() {
     return (
@@ -9,7 +9,7 @@ function App() {
                 <Route path="/" element={<MainMaps />}>
                     <Route index element={<MainMaps />} />                    
                 </Route>
-                <Route path="parkings/details/:spaceId" element={<ParkingsDetails />} />
+                <Route path="parkings/details/:spaceId" element={<ParkingDetails />} />
             </Routes>
         </>
     );

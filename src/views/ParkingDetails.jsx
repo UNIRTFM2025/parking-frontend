@@ -6,7 +6,7 @@ import HeaderDetail from "../components/parkingsDetails/HeaderDetail";
 import FloorDetail from "../components/parkingsDetails/FloorDetail";
 import Sidebar from "../components/parkingsDetails/Sidebar";
 
-export const ParkingsDetails = () => {
+export const ParkingDetails = () => {
     const { spaceId } = useParams();
     const [spaceData, setSpaceData] = useState(null);
     const [selectedFloor, setSelectedFloor] = useState([0,1]);

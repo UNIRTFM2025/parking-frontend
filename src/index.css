@@ -85,3 +85,7 @@ body {
 .mapboxgl-popup-close-button::after {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
+
+/* svg rect {
+  fill: #ffa2a2;
+} */

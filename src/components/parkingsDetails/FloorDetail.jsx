@@ -72,11 +72,11 @@ export default function FloorDetail({ nameParking, parkingLayout, floor, space})
                     </div> 
                     <div className="flex flex-col gap-1.5 justify-center items-center p-4 border border-gray-700 border-dashed">
                         <FaMotorcycle className="text-5xl mb-3 text-gray-600" />
-                        <div className="w-full text-center py-2 px-5 bg-green-400 rounded">
+                        <div className="w-full text-center py-2 px-5 bg-emerald-400 rounded">
                             <span className="text-4xl font-bold">{getStats("Moto", false)}</span>
                             <span className="block">Libres</span>
                         </div>
-                        <div className="w-full text-center py-2 px-5 bg-red-400 rounded">
+                        <div className="w-full text-center py-2 px-5 bg-rose-400 rounded">
                             <span className="text-4xl font-bold">{getStats("Moto", true)}</span>
                             <span className="block">Ocupados</span>
                         </div>

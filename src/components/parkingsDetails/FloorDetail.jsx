@@ -15,6 +15,7 @@ export default function FloorDetail({ nameParking, parkingLayout, floor, space})
         let intervalId;
         let cancelled = false;
         const fetchFloors = async () => {
+            console.log('parking: ',floor[0],"  floor: ",floor[1]);
             try {
                 const response = await axios.get(`https://parking-backend-dr53.onrender.com/spaces/${space}/parkings/${floor[0]}/floors/${floor[1]}`);
                 if (!cancelled) {
@@ -30,7 +31,7 @@ export default function FloorDetail({ nameParking, parkingLayout, floor, space})
         // Ejecutar inmediatamente al cambiar floor
         fetchFloors();
         // Luego cada 15 segundos
-        intervalId = setInterval(fetchFloors, 10000);
+        intervalId = setInterval(fetchFloors, 5000);
         return () => {
             cancelled = true;
             clearInterval(intervalId);

@@ -9,7 +9,7 @@ import Sidebar from "../components/parkingsDetails/Sidebar";
 export const ParkingDetails = () => {
     const { spaceId } = useParams();
     const [spaceData, setSpaceData] = useState(null);
-    const [selectedFloor, setSelectedFloor] = useState([0,1]);
+    const [selectedFloor, setSelectedFloor] = useState([1,1]);
 
     useEffect(() => {
         console.log('Fetching space data for ID:', spaceId);
@@ -50,7 +50,7 @@ export const ParkingDetails = () => {
                 <main className="flex-1 p-6 bg-gray-100 overflow-auto">
                     <FloorDetail 
                         nameParking={spaceData.site.paking.find(p => p.id === selectedFloor[0])?.zone || 'Zona Desconocida'}
-                        parkingLayout={spaceData.site.paking[selectedFloor[0]].layout}
+                        parkingLayout={spaceData.site.paking[0].layout}
                         floor={selectedFloor} 
                         space={spaceId} 
                     />
